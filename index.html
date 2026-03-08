@@ -1,0 +1,887 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy 60th Birthday, Hitesh! 🎂</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cream: #f8f4ed;
+            --warm-gold: #c9a227;
+            --deep-amber: #b8860b;
+            --bourbon: #8b5a2b;
+            --mahogany: #6b3a1e;
+            --oak: #5c4033;
+            --ocean-blue: #2c5f7c;
+            --soft-brown: #8b7355;
+            --dark-text: #2c2416;
+            --caramel: #d4a574;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--cream);
+            color: var(--dark-text);
+            overflow-x: hidden;
+            min-height: 100vh;
+            background-image: radial-gradient(ellipse at 20% 80%, rgba(139, 90, 43, 0.06) 0%, transparent 50%),
+                              radial-gradient(ellipse at 80% 20%, rgba(184, 134, 11, 0.08) 0%, transparent 45%);
+        }
+
+        #confetti-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            background: linear-gradient(180deg, rgba(44, 95, 124, 0.03) 0%, transparent 50%);
+        }
+
+        .balloon {
+            position: absolute;
+            width: 60px;
+            height: 80px;
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            animation: float 6s ease-in-out infinite;
+            opacity: 0.8;
+        }
+
+        .balloon:nth-child(1) { left: 10%; top: 20%; background: linear-gradient(135deg, #c9a227, #e8d48b); animation-delay: 0s; }
+        .balloon:nth-child(2) { left: 85%; top: 15%; background: linear-gradient(135deg, #d4a574, #e8c9a8); animation-delay: 1s; }
+        .balloon:nth-child(3) { left: 5%; top: 60%; background: linear-gradient(135deg, #2c5f7c, #4a8ba8); animation-delay: 2s; }
+        .balloon:nth-child(4) { right: 8%; top: 55%; background: linear-gradient(135deg, #8b7355, #a08060); animation-delay: 1.5s; }
+        .balloon:nth-child(5) { left: 50%; top: 10%; background: linear-gradient(135deg, #c9a227, #f5e6b3); animation-delay: 0.5s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(-2deg); }
+            50% { transform: translateY(-20px) rotate(2deg); }
+        }
+
+        .hero .badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--bourbon), var(--mahogany));
+            color: var(--cream);
+            padding: 0.4rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.85rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 8px rgba(107, 58, 30, 0.3);
+        }
+
+        .hero h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 600;
+            color: var(--deep-amber);
+            margin-bottom: 0.3rem;
+        }
+
+        .hero .nickname {
+            font-size: clamp(1rem, 3vw, 1.3rem);
+            color: var(--soft-brown);
+            font-style: italic;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero .milestone {
+            font-size: clamp(2rem, 6vw, 3.5rem);
+            font-weight: 300;
+            color: var(--bourbon);
+            margin: 1rem 0;
+        }
+
+        .hero .celebration-note {
+            max-width: 500px;
+            font-size: 1.1rem;
+            color: var(--soft-brown);
+            margin-top: 1rem;
+        }
+
+        .cake-emoji {
+            font-size: 3rem;
+            margin: 1rem 0;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        /* Life Journey Map */
+        .journey-section {
+            padding: 5rem 2rem;
+            background: linear-gradient(180deg, transparent 0%, rgba(139, 90, 43, 0.06) 50%, transparent 100%);
+        }
+
+        .journey-section h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.8rem;
+            color: var(--deep-amber);
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .journey-section .subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: var(--soft-brown);
+            margin-bottom: 2rem;
+        }
+
+        .journey-map-wrapper {
+            max-width: 880px;
+            margin: 0 auto;
+            position: relative;
+            padding: 1rem;
+        }
+
+        .journey-map-svg {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .journey-path {
+            fill: none;
+            stroke: var(--deep-amber);
+            stroke-width: 14;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            opacity: 0.9;
+        }
+
+        .journey-path-outline {
+            fill: none;
+            stroke: var(--dark-text);
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            opacity: 0.15;
+        }
+
+        .journey-stop-circle {
+            fill: var(--cream);
+            stroke: var(--deep-amber);
+            stroke-width: 3;
+        }
+
+        .journey-stop-label {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            fill: var(--ocean-blue);
+            font-size: 15px;
+        }
+
+        .journey-stop-sublabel {
+            font-family: 'Outfit', sans-serif;
+            font-size: 11px;
+            fill: var(--soft-brown);
+        }
+
+        .journey-legend {
+            max-width: 700px;
+            margin: 2rem auto 0;
+            padding: 1.5rem;
+            background: rgba(248, 244, 237, 0.9);
+            border-radius: 12px;
+            border: 1px solid rgba(139, 90, 43, 0.25);
+        }
+
+        .journey-legend h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            color: var(--ocean-blue);
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .journey-legend p {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: var(--dark-text);
+            text-align: center;
+        }
+
+        .journey-stops {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .journey-stop {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.4rem 0.8rem;
+            background: rgba(201, 162, 39, 0.15);
+            border-radius: 2rem;
+            font-size: 0.9rem;
+            color: var(--ocean-blue);
+        }
+
+        .journey-stop::before {
+            content: '◆';
+            font-size: 0.6rem;
+            color: var(--deep-amber);
+        }
+
+        /* Photos */
+        .photos-section {
+            padding: 5rem 2rem;
+        }
+
+        .photos-section h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            color: var(--deep-amber);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .photo-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .photo-placeholder {
+            aspect-ratio: 4/3;
+            background: linear-gradient(135deg, #e8ddd0 0%, #d4c4b0 100%);
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--soft-brown);
+            font-size: 2.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .photo-placeholder:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(139, 115, 85, 0.2);
+        }
+
+        .photo-placeholder span {
+            font-size: 0.8rem;
+            margin-top: 0.5rem;
+        }
+
+        .photo-grid img {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
+            border-radius: 12px;
+            display: block;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .photo-grid img:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(139, 115, 85, 0.2);
+        }
+
+        .footer {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(180deg, rgba(44, 95, 124, 0.05) 0%, rgba(44, 95, 124, 0.1) 100%);
+            color: var(--soft-brown);
+        }
+
+        .footer .cruise {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer .message {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            color: var(--ocean-blue);
+            font-style: italic;
+            margin: 1rem 0;
+        }
+
+        .footer .empire-tag {
+            font-size: 0.95rem;
+            color: var(--deep-amber);
+            margin-top: 0.5rem;
+        }
+
+        /* Game: Spin the Toast */
+        .game-section {
+            padding: 5rem 2rem;
+            background: linear-gradient(180deg, rgba(139, 90, 43, 0.08) 0%, rgba(92, 64, 51, 0.12) 100%);
+            border-top: 3px solid var(--bourbon);
+        }
+
+        .game-section h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            color: var(--mahogany);
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .game-section .game-subtitle {
+            text-align: center;
+            font-size: 1rem;
+            color: var(--soft-brown);
+            margin-bottom: 2rem;
+        }
+
+        .game-container {
+            max-width: 420px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .toast-wheel-wrap {
+            position: relative;
+            width: 280px;
+            height: 280px;
+            margin: 0 auto 1.5rem;
+        }
+
+        .toast-wheel {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--bourbon) 0%, var(--mahogany) 50%, var(--oak) 100%);
+            box-shadow: inset 0 0 0 8px var(--caramel), inset 0 0 0 12px var(--mahogany), 0 12px 40px rgba(107, 58, 30, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 2.5s cubic-bezier(0.2, 0.8, 0.3, 1);
+            user-select: none;
+        }
+
+        .toast-wheel.spinning {
+            cursor: default;
+            pointer-events: none;
+        }
+
+        .toast-wheel-inner {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(145deg, var(--cream), #eee4d8);
+            border: 4px solid var(--deep-amber);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--mahogany);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .toast-result {
+            min-height: 3rem;
+            padding: 1rem;
+            margin-top: 1rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            color: var(--mahogany);
+            font-weight: 600;
+        }
+
+        .game-cta {
+            display: inline-block;
+            margin-top: 0.5rem;
+            padding: 0.6rem 1.2rem;
+            background: linear-gradient(135deg, var(--bourbon), var(--mahogany));
+            color: var(--cream);
+            border: none;
+            border-radius: 2rem;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.95rem;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(107, 58, 30, 0.35);
+        }
+
+        .game-cta:hover {
+            filter: brightness(1.1);
+        }
+
+        /* Why We Love You Jar */
+        .jar-section {
+            padding: 5rem 2rem;
+            background: linear-gradient(180deg, rgba(184, 134, 11, 0.06) 0%, rgba(139, 90, 43, 0.08) 100%);
+        }
+
+        .jar-section h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            color: var(--mahogany);
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .jar-section .jar-subtitle {
+            text-align: center;
+            font-size: 1rem;
+            color: var(--soft-brown);
+            margin-bottom: 2rem;
+        }
+
+        .jar-container {
+            max-width: 440px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .jar-visual {
+            width: 160px;
+            height: 200px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(160deg, rgba(248, 244, 237, 0.95) 0%, rgba(232, 228, 220, 0.98) 100%);
+            border: 6px solid var(--caramel);
+            border-radius: 8px 8px 24px 24px;
+            box-shadow: inset 0 0 30px rgba(139, 90, 43, 0.08), 0 8px 24px rgba(92, 64, 51, 0.2);
+            position: relative;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            padding-bottom: 12px;
+        }
+
+        .jar-visual::before {
+            content: '';
+            position: absolute;
+            top: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 20px;
+            background: linear-gradient(180deg, var(--caramel), var(--bourbon));
+            border-radius: 4px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+        }
+
+        .jar-chits-count {
+            font-size: 0.85rem;
+            color: var(--soft-brown);
+            font-weight: 500;
+        }
+
+        .chit-display {
+            min-height: 5rem;
+            margin: 1.25rem 0;
+            padding: 1.25rem 1.5rem;
+            background: linear-gradient(145deg, #fffef9, #f5f0e8);
+            border: 2px solid rgba(139, 90, 43, 0.3);
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(107, 58, 30, 0.1);
+        }
+
+        .chit-display .chit-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.35rem;
+            color: var(--mahogany);
+            font-weight: 600;
+            line-height: 1.5;
+        }
+
+        .chit-display .chit-placeholder {
+            color: var(--soft-brown);
+            font-size: 1rem;
+        }
+
+        .jar-cta {
+            display: inline-block;
+            padding: 0.65rem 1.5rem;
+            background: linear-gradient(135deg, var(--bourbon), var(--mahogany));
+            color: var(--cream);
+            border: none;
+            border-radius: 2rem;
+            font-family: 'Outfit', sans-serif;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            box-shadow: 0 4px 14px rgba(107, 58, 30, 0.35);
+        }
+
+        .jar-cta:hover {
+            filter: brightness(1.08);
+        }
+
+        .jar-cta:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="confetti-canvas"></canvas>
+
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+
+    <section class="hero">
+        <span class="badge">60th Birthday Cruise</span>
+        <h1>Happy Birthday, Hitesh!</h1>
+        <p class="nickname">— Harry to his friends</p>
+        <div class="milestone">60 Years</div>
+        <div class="cake-emoji">🎂</div>
+        <p class="celebration-note">
+            Celebrating you on the high seas! From India to America, you've built an incredible life, 
+            a family that adores you, and Star Liquors—king of your corner. Here's to 60 amazing years.
+        </p>
+    </section>
+
+    <section class="journey-section">
+        <h2>His Life Journey</h2>
+        <p class="subtitle">Hitesh &amp; Harry — Est. 60 years and counting</p>
+        <div class="journey-map-wrapper">
+            <svg class="journey-map-svg" viewBox="0 0 800 520" xmlns="http://www.w3.org/2000/svg" aria-label="Hitesh's life journey from India to America, family, and 60th birthday cruise">
+                <!-- Winding path (outline then fill) -->
+                <path class="journey-path-outline" d="M 80 80 Q 200 40 320 120 T 520 80 T 700 200 T 720 380 Q 600 460 400 440 T 120 360 Q 60 260 80 80" />
+                <path class="journey-path" d="M 80 80 Q 200 40 320 120 T 520 80 T 700 200 T 720 380 Q 600 460 400 440 T 120 360 Q 60 260 80 80" />
+                <!-- Stop 1: India -->
+                <g>
+                    <circle class="journey-stop-circle" cx="80" cy="80" r="28" />
+                    <text class="journey-stop-label" x="80" y="76" text-anchor="middle">India</text>
+                    <text class="journey-stop-sublabel" x="80" y="92" text-anchor="middle">The beginning · 20s</text>
+                </g>
+                <!-- Stop 2: America -->
+                <g>
+                    <circle class="journey-stop-circle" cx="320" cy="120" r="28" />
+                    <text class="journey-stop-label" x="320" y="116" text-anchor="middle">America</text>
+                    <text class="journey-stop-sublabel" x="320" y="132" text-anchor="middle">New life</text>
+                </g>
+                <!-- Stop 3: Star Liquors -->
+                <g>
+                    <circle class="journey-stop-circle" cx="520" cy="80" r="28" />
+                    <text class="journey-stop-label" x="520" y="72" text-anchor="middle">Star Liquors</text>
+                    <text class="journey-stop-sublabel" x="520" y="88" text-anchor="middle">His empire · King</text>
+                </g>
+                <!-- Stop 4: Family -->
+                <g>
+                    <circle class="journey-stop-circle" cx="700" cy="200" r="28" />
+                    <text class="journey-stop-label" x="700" y="196" text-anchor="middle">Family</text>
+                    <text class="journey-stop-sublabel" x="700" y="212" text-anchor="middle">Greatest joy</text>
+                </g>
+                <!-- Stop 5: Always there -->
+                <g>
+                    <circle class="journey-stop-circle" cx="720" cy="380" r="28" />
+                    <text class="journey-stop-label" x="720" y="374" text-anchor="middle">Always</text>
+                    <text class="journey-stop-sublabel" x="720" y="390" text-anchor="middle">there for us</text>
+                </g>
+                <!-- Stop 6: 60 & Cruise -->
+                <g>
+                    <circle class="journey-stop-circle" cx="120" cy="360" r="32" />
+                    <text class="journey-stop-label" x="120" y="352" text-anchor="middle">60!</text>
+                    <text class="journey-stop-sublabel" x="120" y="372" text-anchor="middle">Cruise 🛳️</text>
+                </g>
+            </svg>
+        </div>
+        <div class="journey-legend">
+            <p>From India in his 20s to America, building a life, Star Liquors (his empire), and a family—and showing up for every graduation, wedding, and milestone. Here's to 60 years, Empire King! 🥃</p>
+        </div>
+    </section>
+
+    <section class="jar-section">
+        <h2>❤️ 60 Reasons We Love You</h2>
+        <p class="jar-subtitle">Pick one chit at a time from the jar</p>
+        <div class="jar-container">
+            <div class="jar-visual">
+                <span class="jar-chits-count" id="jar-count">60 left</span>
+            </div>
+            <div class="chit-display" id="chit-display">
+                <span class="chit-placeholder">Click below to pull a chit</span>
+            </div>
+            <button type="button" class="jar-cta" id="pick-chit">Pick a chit</button>
+        </div>
+    </section>
+
+    <section class="photos-section">
+        <h2>Through the Years</h2>
+        <div class="photo-grid">
+            <img src="photos/family/IMG_0729.JPG" alt="Hitesh">
+            <img src="photos/family/IMG_0974.jpeg" alt="Hitesh">
+            <img src="photos/family/IMG_1028.jpeg" alt="Hitesh">
+            <img src="photos/family/IMG_2387%202.JPG" alt="Hitesh">
+            <img src="photos/family/IMG_2870.JPG" alt="Hitesh">
+            <img src="photos/family/IMG_2875.JPG" alt="Hitesh">
+            <img src="photos/family/IMG_6658.JPG" alt="Hitesh">
+            <img src="photos/family/IMG_3063%202.JPG" alt="Hitesh">
+            <img src="photos/family/0768ed41-ad8a-42c0-9b6f-18c47ed39c24.JPG" alt="Hitesh">
+            <img src="photos/family/27560c20-4632-404c-b7d3-921a1917a014.JPG" alt="Hitesh">
+            <img src="photos/family/765b21de-cf6a-4362-8b1f-b93fd919e0bc.JPG" alt="Hitesh">
+            <img src="photos/family/874b4621-12e2-4231-a7c1-4c39efa19c75.JPG" alt="Hitesh">
+            <img src="photos/family/912266fd-ad66-415b-b6fa-042b8376dd24.JPG" alt="Hitesh">
+            <img src="photos/family/a8bc95de-401d-4cf5-93fc-eb87da6b42f9.JPG" alt="Hitesh">
+            <img src="photos/family/fb8f794a-cd22-43d7-9b78-4b4f8fd76c7b.JPG" alt="Hitesh">
+            <img src="photos/him+his%20wife/IMG_0651%202.JPEG" alt="Hitesh">
+            <img src="photos/him+his%20wife/IMG_6796.JPG" alt="Hitesh">
+            <img src="photos/him+his%20wife/e40908bf-28b6-4087-af0b-69f1476a72c6.JPG" alt="Hitesh">
+            <img src="photos/solo/8a7b2807-e2a3-4c0d-ba15-3b7c23783edf.JPG" alt="Hitesh">
+            <img src="photos/solo/FullSizeRender%202.JPG" alt="Hitesh">
+            <img src="photos/solo/IMG_2731%202.JPEG" alt="Hitesh">
+            <img src="photos/solo/IMG_2742%203.JPEG" alt="Hitesh">
+            <img src="photos/solo/IMG_3560%202.JPEG" alt="Hitesh">
+            <img src="photos/solo/IMG_4352%202.JPEG" alt="Hitesh">
+            <img src="photos/solo/View%20recent%20photos.JPEG" alt="Hitesh">
+        </div>
+    </section>
+
+    <section class="game-section">
+        <h2>🥃 Spin the Toast</h2>
+        <p class="game-subtitle">Give the wheel a spin and raise a glass to Harry!</p>
+        <div class="game-container">
+            <div class="toast-wheel-wrap">
+                <div class="toast-wheel" id="toast-wheel" role="button" tabindex="0" aria-label="Spin the toast wheel">
+                    <div class="toast-wheel-inner">SPIN</div>
+                </div>
+            </div>
+            <div class="toast-result" id="toast-result" aria-live="polite"></div>
+            <button type="button" class="game-cta" id="spin-again" style="display: none;">Spin again</button>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="cruise">🛳️</div>
+        <p class="message">Thank you for always showing up for us. We love you, Harry!</p>
+        <p class="empire-tag">— Empire King of Star Liquors, with love from your family</p>
+    </footer>
+
+    <script>
+        const canvas = document.getElementById('confetti-canvas');
+        const ctx = canvas.getContext('2d');
+        let width = canvas.width = window.innerWidth;
+        let height = canvas.height = window.innerHeight;
+        const particles = [];
+        const colors = ['#c9a227', '#b8860b', '#8b5a2b', '#6b3a1e', '#e8d48b'];
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * width;
+                this.y = -10;
+                this.size = Math.random() * 6 + 3;
+                this.color = colors[Math.floor(Math.random() * colors.length)];
+                this.speedY = Math.random() * 2 + 2;
+                this.speedX = (Math.random() - 0.5) * 2;
+                this.rotation = Math.random() * 360;
+                this.rotationSpeed = (Math.random() - 0.5) * 10;
+            }
+            update() {
+                this.y += this.speedY;
+                this.x += this.speedX;
+                this.rotation += this.rotationSpeed;
+                return this.y < height + 20;
+            }
+            draw() {
+                ctx.save();
+                ctx.translate(this.x, this.y);
+                ctx.rotate(this.rotation * Math.PI / 180);
+                ctx.fillStyle = this.color;
+                ctx.fillRect(-this.size/2, -this.size/2, this.size, this.size);
+                ctx.restore();
+            }
+        }
+
+        function createConfetti() {
+            for (let i = 0; i < 5; i++) particles.push(new Particle());
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
+            if (Math.random() < 0.03) createConfetti();
+            particles.forEach((p, i) => {
+                if (!p.update()) particles.splice(i, 1);
+                else p.draw();
+            });
+            requestAnimationFrame(animate);
+        }
+
+        window.addEventListener('resize', () => {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        });
+
+        for (let i = 0; i < 50; i++) {
+            const p = new Particle();
+            p.y = Math.random() * height;
+            p.x = Math.random() * width;
+            particles.push(p);
+        }
+        animate();
+
+        // Spin the Toast game
+        const toasts = [
+            'Here\'s to 60 years, Harry! 🥃',
+            'Empire King of Star Liquors!',
+            'Cheers to the man who always shows up!',
+            'To India, America, and everything in between!',
+            'Star Liquors forever!',
+            'To family, and to you—cheers!',
+            '60 years young. Here\'s to many more!',
+            'Raise a glass to the King!',
+            'To graduations, weddings, and every milestone!',
+            'Bourbon and birthdays—perfect pair.',
+            'Here\'s to the cruise and the journey!',
+            'To Harry—friend, uncle, legend!'
+        ];
+        const wheel = document.getElementById('toast-wheel');
+        const resultEl = document.getElementById('toast-result');
+        const spinAgainBtn = document.getElementById('spin-again');
+        let isSpinning = false;
+
+        function spinWheel() {
+            if (isSpinning) return;
+            isSpinning = true;
+            wheel.classList.add('spinning');
+            resultEl.textContent = '';
+            spinAgainBtn.style.display = 'none';
+
+            const spins = 4 + Math.random() * 4;
+            const deg = 360 * spins + Math.random() * 360;
+            wheel.style.transform = `rotate(${deg}deg)`;
+
+            setTimeout(() => {
+                const idx = Math.floor(Math.random() * toasts.length);
+                resultEl.textContent = toasts[idx];
+                spinAgainBtn.style.display = 'inline-block';
+                wheel.classList.remove('spinning');
+                isSpinning = false;
+            }, 2500);
+        }
+
+        wheel.addEventListener('click', spinWheel);
+        wheel.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); spinWheel(); } });
+        spinAgainBtn.addEventListener('click', spinWheel);
+
+        // Why We Love You jar — 60 chits, one at a time
+        const whyWeLoveYouChits = [
+            "You always show up—no matter what.",
+            "You built a life from scratch in a new country.",
+            "You're the uncle who never misses a graduation.",
+            "Star Liquors is your empire, and we're proud.",
+            "You came from India with a dream and made it real.",
+            "You're there for every wedding, every milestone.",
+            "You make us feel like we matter.",
+            "You work hard so your family can thrive.",
+            "You're Harry to your friends—warm and true.",
+            "You never forget a birthday or a celebration.",
+            "You've got a way of making people feel at home.",
+            "You believe in us even when we doubt ourselves.",
+            "You built not just a business but a legacy.",
+            "You're the king of your corner—and ours.",
+            "You remind us what family is for.",
+            "You crossed an ocean to give us a better life.",
+            "You show up in the front row, beaming with pride.",
+            "You're steady when things get tough.",
+            "You've got that rare mix of strength and kindness.",
+            "You make every gathering a little brighter.",
+            "You never let us down when it counts.",
+            "You're proof that hard work and heart pay off.",
+            "You've been there for 60 years—here's to you.",
+            "You make us laugh when we need it most.",
+            "You're the one we can always count on.",
+            "You turned a new country into home.",
+            "You care about the little things.",
+            "You're our Empire King—and we mean it.",
+            "You've taught us what it means to show up.",
+            "You built a family and a business with the same love.",
+            "You're the uncle everyone wishes they had.",
+            "You never miss a chance to celebrate us.",
+            "You've got a heart as big as your journey.",
+            "You make Star Liquors more than a store—it's yours.",
+            "You're the reason we know family comes first.",
+            "You've lived 60 years of courage and kindness.",
+            "You're the one in the crowd cheering loudest.",
+            "You turned every \"I can't\" into \"we did.\"",
+            "You've given us a lifetime of memories.",
+            "You're humble about everything you've built.",
+            "You make every toast feel like a promise.",
+            "You've been our rock for as long as we remember.",
+            "You're the definition of showing up.",
+            "You came from India and gave us the world.",
+            "You never let distance or busy get in the way.",
+            "You've got that smile that says \"I've got you.\"",
+            "You're the kind of person who makes others better.",
+            "You've built something real—family and Star Liquors.",
+            "You're the uncle who's always in our corner.",
+            "You've lived 60 years and we're just getting started.",
+            "You make us proud every single day.",
+            "You're the glue when we need to stay together.",
+            "You've earned every \"Empire King\" we say.",
+            "You never forget where you started—India, then America.",
+            "You're the one we raise a glass to—today and always.",
+            "You've shown us that home is where family is.",
+            "You're the reason this jar has 60 chits.",
+            "You make 60 look like the beginning.",
+            "You're our Harry—and we love you.",
+            "You've given us more than we could ever list.",
+            "You're the heart of this family.",
+            "Here's to 60 years—and to you.",
+            "You make every cruise and every day count.",
+            "You're the one we toast to—again and again.",
+            "You've got that quiet strength we all lean on.",
+            "You never stopped building—family, business, love.",
+            "You're the reason we believe in second chances.",
+            "You've made 60 years look like a gift to us all."
+        ];
+
+        let chitStack = [];
+        function shuffleChits() {
+            chitStack = [...whyWeLoveYouChits].sort(() => Math.random() - 0.5);
+        }
+        shuffleChits();
+
+        const chitDisplay = document.getElementById('chit-display');
+        const pickChitBtn = document.getElementById('pick-chit');
+        const jarCountEl = document.getElementById('jar-count');
+
+        function pickChit() {
+            if (chitStack.length === 0) {
+                shuffleChits();
+                jarCountEl.textContent = '60 left';
+                chitDisplay.innerHTML = '<span class="chit-placeholder">Jar refilled! Pick again.</span>';
+                return;
+            }
+            const chit = chitStack.pop();
+            chitDisplay.innerHTML = '<span class="chit-text">' + chit + '</span>';
+            jarCountEl.textContent = chitStack.length + ' left';
+        }
+
+        pickChitBtn.addEventListener('click', pickChit);
+    </script>
+</body>
+</html>
