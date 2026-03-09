@@ -684,6 +684,7 @@
     var chitDisplay = document.getElementById('chit-display');
     var pickBtn     = document.getElementById('pick-chit');
     var jarCount    = document.getElementById('jar-count');
+    jarCount.textContent = chits.length + ' left';
 
     function pickChit() {
       if (!stack.length) {
