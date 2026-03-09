@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Life Journey Map</title>
+    <!-- Tailwind CSS for layout and styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts for the "Hand-drawn" aesthetic -->
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Montserrat:wght@500;600&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            background-color: #D5C7B6;
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+        }
+        .handwritten {
+            font-family: 'Caveat', cursive;
+        }
+        .blob-frame {
+            transition: transform 0.4s ease-in-out;
+        }
+        .blob-frame:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8 lg:p-12">
+
+    <!-- Poster Canvas Container -->
+    <div class="bg-[#FDFBF7] w-full max-w-5xl mx-auto rounded shadow-2xl overflow-hidden relative border border-[#E8DAC8] py-16 md:py-24 px-4 sm:px-8">
+        
+        <!-- Header Section -->
+        <div class="relative z-10 text-center mb-20 md:mb-28">
+            <div class="flex justify-center items-center gap-2 md:gap-6 mb-4">
+                <i data-lucide="leaf" class="text-[#A89F91] transform -rotate-45 hidden md:block opacity-70 w-8 h-8"></i>
+                <h1 class="text-6xl md:text-8xl font-bold text-[#3A3532] handwritten">
+                    LIFE JOURNEY MAP
+                </h1>
+                <i data-lucide="leaf" class="text-[#A89F91] transform scale-x-[-1] rotate-45 hidden md:block opacity-70 w-8 h-8"></i>
+            </div>
+            <div class="flex justify-center items-center gap-4">
+                <i data-lucide="sparkles" class="text-[#A89F91] w-5 h-5 md:w-8 md:h-8 opacity-70"></i>
+                <p class="text-2xl md:text-4xl text-[#4A433E] handwritten">
+                    — Celebrating a Milestone —
+                </p>
+                <i data-lucide="sparkles" class="text-[#A89F91] w-5 h-5 md:w-8 md:h-8 opacity-70"></i>
+            </div>
+            <p class="text-[10px] md:text-xs tracking-[0.3em] text-[#7A7065] mt-6 uppercase font-semibold">
+                A life full of love, family & adventure
+            </p>
+        </div>
+
+        <!-- Timeline Map Container -->
+        <div class="relative w-full max-w-4xl mx-auto">
+            
+            <!-- SVG Winding Path (Desktop Only) -->
+            <div class="absolute top-0 left-0 w-full h-full pointer-events-none z-0 opacity-50 hidden md:block">
+                <svg viewBox="0 0 100 100" preserveAspectRatio="none" class="w-full h-full">
+                    <path
+                        d="M 50 0 Q 60 8, 50 16 Q 40 24, 50 32 Q 60 40, 50 48 Q 40 56, 50 64 Q 60 72, 50 80 Q 40 88, 50 100"
+                        fill="none"
+                        stroke="#A89F91"
+                        stroke-width="0.5"
+                        stroke-dasharray="1,1"
+                    />
+                </svg>
+            </div>
+
+            <!-- Mobile Straight Dashed Line -->
+            <div class="absolute top-0 left-1/2 transform -translate-x-1/2 w-0.5 h-full border-l-2 border-dashed border-[#A89F91] opacity-40 z-0 md:hidden"></div>
+
+            <!-- Timeline Content -->
+            <div class="relative z-10 flex flex-col pt-4" id="timeline-content">
+                <!-- Javascript will inject the items here -->
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // Data for the journey
+        const steps = [
+            { year: "1966", location: "JAMNAGAR, INDIA", title: "Where it all began", icon: "home" },
+            { year: "1990 - 1991", location: "INDIA → TORONTO → FLORIDA", title: "Married & A Big Move", icon: "plane" },
+            { year: "EARLY 90s", location: "FLORIDA, USA", title: "The First Liquor Store", icon: "shopping-bag" },
+            { year: "1994 & 1996", location: "FLORIDA, USA", title: "Kids & Growing Business", icon: "users" },
+            { 
+                year: "2022 — ∞", 
+                location: "FERGUS, CANADA & BLUE RIDGE, GA", 
+                title: "The story of the cottages began...", 
+                icon: "trees" 
+            },
+            { year: "2026", location: "AT SEA", title: "Milestone Celebration", icon: "ship" }
+        ];
+
+        // Organic blob shapes for variety
+        const blobs = [
+            "50% 50% 40% 60% / 60% 40% 50% 50%",
+            "40% 60% 50% 50% / 50% 50% 60% 40%",
+            "60% 40% 50% 50% / 50% 60% 40% 50%",
+            "50% 50% 60% 40% / 40% 50% 50% 60%",
+            "40% 50% 60% 50% / 60% 40% 50% 40%",
+            "50% 60% 40% 50% / 50% 40% 60% 50%"
+        ];
+
+        const container = document.getElementById('timeline-content');
+
+        steps.forEach((step, index) => {
+            const isEven = index % 2 === 0;
+            const item = document.createElement('div');
+            item.className = `flex items-center justify-between w-full flex-col ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'} mb-16 md:mb-0 md:h-[260px]`;
+            
+            item.innerHTML = `
+                <div class="w-full md:w-5/12 flex justify-center items-center">
+                    <div class="relative flex flex-col items-center group cursor-default">
+                        <!-- Blob Shape -->
+                        <div class="w-[260px] h-[160px] md:w-[300px] md:h-[190px] bg-[#E8DAC8] flex items-center justify-center p-6 border border-[#D5C7B6] blob-frame relative z-10 shadow-sm" 
+                             style="border-radius: ${blobs[index]}">
+                            
+                            ${isEven ? '<i data-lucide="heart" class="absolute top-6 right-8 w-5 h-5 text-[#A89F91] opacity-50"></i>' : '<i data-lucide="sparkles" class="absolute bottom-6 left-8 w-6 h-6 text-[#A89F91] opacity-50"></i>'}
+                            
+                            <div class="w-16 h-16 md:w-20 md:h-20 text-[#4A433E]">
+                                <i data-lucide="${step.icon}" class="w-full h-full opacity-80" stroke-width="1.2"></i>
+                            </div>
+                        </div>
+
+                        <!-- Label -->
+                        <div class="text-center mt-6 bg-[#FDFBF7] bg-opacity-80 rounded-full px-4 py-1">
+                            <h3 class="text-3xl md:text-4xl font-bold text-[#3A3532] handwritten">${step.title}</h3>
+                            <p class="text-[10px] md:text-[11px] tracking-[0.15em] text-[#7A7065] mt-1 font-semibold uppercase leading-relaxed">
+                                ${step.location} <span class="hidden md:inline"> • </span> ${step.year}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Spacers for alternating desktop layout -->
+                <div class="hidden md:block w-2/12"></div>
+                <div class="hidden md:block w-5/12"></div>
+            `;
+            container.appendChild(item);
+        });
+
+        // Initialize Lucide icons after injection
+        lucide.createIcons();
+    </script>
+</body>
+</html>
