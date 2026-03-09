@@ -7,6 +7,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Montserrat:wght@500;600&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@0.577.0"></script>
   <style>
     :root {
       --cream: #f8f4ed;
@@ -126,6 +129,15 @@
       background:rgba(248,244,237,.9); border-radius:12px;
       border:1px solid rgba(139,90,43,.22);
       font-size:.92rem; line-height:1.7; color:var(--dark-text); text-align:center;
+    }
+    .handwritten {
+      font-family: 'Caveat', cursive;
+    }
+    .blob-frame {
+      transition: transform 0.4s ease-in-out;
+    }
+    .blob-frame:hover {
+      transform: scale(1.05);
     }
 
     /* ── PHOTO REVEAL CARDS ── */
@@ -352,23 +364,54 @@
 
   <!-- LIFE JOURNEY -->
   <section class="journey-section">
-    <h2>His Life Journey</h2>
-    <p class="section-subtitle">Hitesh &amp; Harry — Est. 60 years and counting</p>
-    <div class="journey-map-wrapper">
-      <svg class="journey-map-svg" viewBox="0 0 800 520" xmlns="http://www.w3.org/2000/svg" aria-label="Hitesh's life journey">
-        <path class="journey-path-outline" d="M 80 80 Q 200 40 320 120 T 520 80 T 700 200 T 720 380 Q 600 460 400 440 T 120 360 Q 60 260 80 80"/>
-        <path class="journey-path"         d="M 80 80 Q 200 40 320 120 T 520 80 T 700 200 T 720 380 Q 600 460 400 440 T 120 360 Q 60 260 80 80"/>
-        <g><circle class="journey-stop-circle" cx="80"  cy="80"  r="28"/><text class="journey-stop-label" x="80"  y="76"  text-anchor="middle">India</text><text class="journey-stop-sublabel" x="80"  y="92"  text-anchor="middle">The beginning · 20s</text></g>
-        <g><circle class="journey-stop-circle" cx="320" cy="120" r="28"/><text class="journey-stop-label" x="320" y="116" text-anchor="middle">America</text><text class="journey-stop-sublabel" x="320" y="132" text-anchor="middle">New life</text></g>
-        <g><circle class="journey-stop-circle" cx="520" cy="80"  r="28"/><text class="journey-stop-label" x="520" y="72"  text-anchor="middle">Star Liquors</text><text class="journey-stop-sublabel" x="520" y="88"  text-anchor="middle">His empire · King</text></g>
-        <g><circle class="journey-stop-circle" cx="700" cy="200" r="28"/><text class="journey-stop-label" x="700" y="196" text-anchor="middle">Family</text><text class="journey-stop-sublabel" x="700" y="212" text-anchor="middle">Greatest joy</text></g>
-        <g><circle class="journey-stop-circle" cx="720" cy="380" r="28"/><text class="journey-stop-label" x="720" y="374" text-anchor="middle">Always</text><text class="journey-stop-sublabel" x="720" y="390" text-anchor="middle">there for us</text></g>
-        <g><circle class="journey-stop-circle" cx="120" cy="360" r="32"/><text class="journey-stop-label" x="120" y="352" text-anchor="middle">60!</text><text class="journey-stop-sublabel" x="120" y="372" text-anchor="middle">Cruise 🛳️</text></g>
-      </svg>
-    </div>
-    <div class="journey-legend">
-      From India in his 20s to America, building a life, Star Liquors (his empire), and a family—
-      showing up for every graduation, wedding, and milestone. Here's to 60 years, Empire King! 🥃
+    <div class="bg-[#FDFBF7] w-full max-w-5xl mx-auto rounded shadow-2xl overflow-hidden relative border border-[#E8DAC8] py-16 md:py-24 px-4 sm:px-8">
+
+      <!-- Header Section -->
+      <div class="relative z-10 text-center mb-20 md:mb-28">
+        <div class="flex justify-center items-center gap-2 md:gap-6 mb-4">
+          <i data-lucide="leaf" class="text-[#A89F91] transform -rotate-45 hidden md:block opacity-70 w-8 h-8"></i>
+          <h1 class="text-6xl md:text-8xl font-bold text-[#3A3532] handwritten">
+            LIFE JOURNEY MAP
+          </h1>
+          <i data-lucide="leaf" class="text-[#A89F91] transform scale-x-[-1] rotate-45 hidden md:block opacity-70 w-8 h-8"></i>
+        </div>
+        <div class="flex justify-center items-center gap-4">
+          <i data-lucide="sparkles" class="text-[#A89F91] w-5 h-5 md:w-8 md:h-8 opacity-70"></i>
+          <p class="text-2xl md:text-4xl text-[#4A433E] handwritten">
+            — Celebrating a Milestone —
+          </p>
+          <i data-lucide="sparkles" class="text-[#A89F91] w-5 h-5 md:w-8 md:h-8 opacity-70"></i>
+        </div>
+        <p class="text-[10px] md:text-xs tracking-[0.3em] text-[#7A7065] mt-6 uppercase font-semibold">
+          A life full of love, family &amp; adventure
+        </p>
+      </div>
+
+      <!-- Timeline Map Container -->
+      <div class="relative w-full max-w-4xl mx-auto">
+
+        <!-- SVG Winding Path (Desktop Only) -->
+        <div class="absolute top-0 left-0 w-full h-full pointer-events-none z-0 opacity-50 hidden md:block">
+          <svg viewBox="0 0 100 100" preserveAspectRatio="none" class="w-full h-full">
+            <path
+              d="M 50 0 Q 60 8, 50 16 Q 40 24, 50 32 Q 60 40, 50 48 Q 40 56, 50 64 Q 60 72, 50 80 Q 40 88, 50 100"
+              fill="none"
+              stroke="#A89F91"
+              stroke-width="0.5"
+              stroke-dasharray="1,1"
+            />
+          </svg>
+        </div>
+
+        <!-- Mobile Straight Dashed Line -->
+        <div class="absolute top-0 left-1/2 transform -translate-x-1/2 w-0.5 h-full border-l-2 border-dashed border-[#A89F91] opacity-40 z-0 md:hidden"></div>
+
+        <!-- Timeline Content -->
+        <div class="relative z-10 flex flex-col pt-4" id="timeline-content">
+          <!-- Javascript will inject the items here -->
+        </div>
+
+      </div>
     </div>
   </section>
 
@@ -698,6 +741,55 @@
       jarCount.textContent = stack.length + ' left';
     }
     pickBtn.addEventListener('click', pickChit);
+
+    /* LIFE JOURNEY MAP */
+    var journeySteps = [
+      { year: "1966", location: "JAMNAGAR, INDIA", title: "Where it all began", icon: "home" },
+      { year: "1990 - 1991", location: "INDIA → TORONTO → FLORIDA", title: "Married & A Big Move", icon: "plane" },
+      { year: "EARLY 90s", location: "FLORIDA, USA", title: "The First Liquor Store", icon: "shopping-bag" },
+      { year: "1994 & 1996", location: "FLORIDA, USA", title: "Kids & Growing Business", icon: "users" },
+      { year: "2022 — ∞", location: "FERGUS, CANADA & BLUE RIDGE, GA", title: "The story of the cottages began...", icon: "trees" },
+      { year: "2026", location: "AT SEA", title: "Milestone Celebration", icon: "ship" }
+    ];
+
+    var journeyBlobs = [
+      "50% 50% 40% 60% / 60% 40% 50% 50%",
+      "40% 60% 50% 50% / 50% 50% 60% 40%",
+      "60% 40% 50% 50% / 50% 60% 40% 50%",
+      "50% 50% 60% 40% / 40% 50% 50% 60%",
+      "40% 50% 60% 50% / 60% 40% 50% 40%",
+      "50% 60% 40% 50% / 50% 40% 60% 50%"
+    ];
+
+    var timelineContainer = document.getElementById('timeline-content');
+    if (timelineContainer) {
+      journeySteps.forEach(function(step, index) {
+        var isEven = index % 2 === 0;
+        var item = document.createElement('div');
+        item.className = 'flex items-center justify-between w-full flex-col ' + (isEven ? 'md:flex-row' : 'md:flex-row-reverse') + ' mb-16 md:mb-0 md:h-[260px]';
+        item.innerHTML =
+          '<div class="w-full md:w-5/12 flex justify-center items-center">' +
+            '<div class="relative flex flex-col items-center group cursor-default">' +
+              '<div class="w-[260px] h-[160px] md:w-[300px] md:h-[190px] bg-[#E8DAC8] flex items-center justify-center p-6 border border-[#D5C7B6] blob-frame relative z-10 shadow-sm" style="border-radius: ' + journeyBlobs[index] + '">' +
+                (isEven
+                  ? '<i data-lucide="heart" class="absolute top-6 right-8 w-5 h-5 text-[#A89F91] opacity-50"></i>'
+                  : '<i data-lucide="sparkles" class="absolute bottom-6 left-8 w-6 h-6 text-[#A89F91] opacity-50"></i>') +
+                '<div class="w-16 h-16 md:w-20 md:h-20 text-[#4A433E]">' +
+                  '<i data-lucide="' + step.icon + '" class="w-full h-full opacity-80" stroke-width="1.2"></i>' +
+                '</div>' +
+              '</div>' +
+              '<div class="text-center mt-6 bg-[#FDFBF7] bg-opacity-80 rounded-full px-4 py-1">' +
+                '<h3 class="text-3xl md:text-4xl font-bold text-[#3A3532] handwritten">' + step.title + '</h3>' +
+                '<p class="text-[10px] md:text-[11px] tracking-[0.15em] text-[#7A7065] mt-1 font-semibold uppercase leading-relaxed">' + step.location + ' <span class="hidden md:inline"> • </span> ' + step.year + '</p>' +
+              '</div>' +
+            '</div>' +
+          '</div>' +
+          '<div class="hidden md:block w-2/12"></div>' +
+          '<div class="hidden md:block w-5/12"></div>';
+        timelineContainer.appendChild(item);
+      });
+      lucide.createIcons();
+    }
   </script>
 </body>
 </html>
