@@ -171,7 +171,6 @@
     }
     .reveal-prompt .rp-btn:hover { filter:brightness(1.12); }
 
-    /* photo display area inside card */
     .reveal-photo-wrap {
       display:none; flex-direction:column;
       align-items:center; padding:1rem 1rem 1.25rem;
@@ -183,6 +182,7 @@
       object-fit:cover; border-radius:12px;
       box-shadow:0 6px 20px rgba(107,58,30,.2);
       animation:fadeInPhoto .45s ease;
+      cursor:pointer;
     }
     @keyframes fadeInPhoto {
       from{ opacity:0; transform:scale(.96); }
@@ -321,7 +321,7 @@
       box-shadow:0 2px 10px rgba(0,0,0,.3);
     }
 
-    /* ── RESPONSIVE TWEAKS ── */
+    /* ── RESPONSIVE ── */
     @media(max-width:480px){
       .reveal-grid { grid-template-columns:1fr; }
       .toast-wheel-wrap{ width:200px; height:200px; }
@@ -331,14 +331,13 @@
 <body>
   <canvas id="confetti-canvas"></canvas>
 
-  <!-- Balloons -->
   <div class="balloon"></div>
   <div class="balloon"></div>
   <div class="balloon"></div>
   <div class="balloon"></div>
   <div class="balloon"></div>
 
-  <!-- ── HERO ── -->
+  <!-- HERO -->
   <section class="hero">
     <span class="badge">60th Birthday Cruise</span>
     <h1>Happy Birthday, Hitesh!</h1>
@@ -351,33 +350,20 @@
     </p>
   </section>
 
-  <!-- ── LIFE JOURNEY ── -->
+  <!-- LIFE JOURNEY -->
   <section class="journey-section">
     <h2>His Life Journey</h2>
     <p class="section-subtitle">Hitesh &amp; Harry — Est. 60 years and counting</p>
     <div class="journey-map-wrapper">
-      <svg class="journey-map-svg" viewBox="0 0 800 520" xmlns="http://www.w3.org/2000/svg"
-           aria-label="Hitesh's life journey">
+      <svg class="journey-map-svg" viewBox="0 0 800 520" xmlns="http://www.w3.org/2000/svg" aria-label="Hitesh's life journey">
         <path class="journey-path-outline" d="M 80 80 Q 200 40 320 120 T 520 80 T 700 200 T 720 380 Q 600 460 400 440 T 120 360 Q 60 260 80 80"/>
         <path class="journey-path"         d="M 80 80 Q 200 40 320 120 T 520 80 T 700 200 T 720 380 Q 600 460 400 440 T 120 360 Q 60 260 80 80"/>
-        <g><circle class="journey-stop-circle" cx="80"  cy="80"  r="28"/>
-           <text class="journey-stop-label"    x="80"  y="76"  text-anchor="middle">India</text>
-           <text class="journey-stop-sublabel" x="80"  y="92"  text-anchor="middle">The beginning · 20s</text></g>
-        <g><circle class="journey-stop-circle" cx="320" cy="120" r="28"/>
-           <text class="journey-stop-label"    x="320" y="116" text-anchor="middle">America</text>
-           <text class="journey-stop-sublabel" x="320" y="132" text-anchor="middle">New life</text></g>
-        <g><circle class="journey-stop-circle" cx="520" cy="80"  r="28"/>
-           <text class="journey-stop-label"    x="520" y="72"  text-anchor="middle">Star Liquors</text>
-           <text class="journey-stop-sublabel" x="520" y="88"  text-anchor="middle">His empire · King</text></g>
-        <g><circle class="journey-stop-circle" cx="700" cy="200" r="28"/>
-           <text class="journey-stop-label"    x="700" y="196" text-anchor="middle">Family</text>
-           <text class="journey-stop-sublabel" x="700" y="212" text-anchor="middle">Greatest joy</text></g>
-        <g><circle class="journey-stop-circle" cx="720" cy="380" r="28"/>
-           <text class="journey-stop-label"    x="720" y="374" text-anchor="middle">Always</text>
-           <text class="journey-stop-sublabel" x="720" y="390" text-anchor="middle">there for us</text></g>
-        <g><circle class="journey-stop-circle" cx="120" cy="360" r="32"/>
-           <text class="journey-stop-label"    x="120" y="352" text-anchor="middle">60!</text>
-           <text class="journey-stop-sublabel" x="120" y="372" text-anchor="middle">Cruise 🛳️</text></g>
+        <g><circle class="journey-stop-circle" cx="80"  cy="80"  r="28"/><text class="journey-stop-label" x="80"  y="76"  text-anchor="middle">India</text><text class="journey-stop-sublabel" x="80"  y="92"  text-anchor="middle">The beginning · 20s</text></g>
+        <g><circle class="journey-stop-circle" cx="320" cy="120" r="28"/><text class="journey-stop-label" x="320" y="116" text-anchor="middle">America</text><text class="journey-stop-sublabel" x="320" y="132" text-anchor="middle">New life</text></g>
+        <g><circle class="journey-stop-circle" cx="520" cy="80"  r="28"/><text class="journey-stop-label" x="520" y="72"  text-anchor="middle">Star Liquors</text><text class="journey-stop-sublabel" x="520" y="88"  text-anchor="middle">His empire · King</text></g>
+        <g><circle class="journey-stop-circle" cx="700" cy="200" r="28"/><text class="journey-stop-label" x="700" y="196" text-anchor="middle">Family</text><text class="journey-stop-sublabel" x="700" y="212" text-anchor="middle">Greatest joy</text></g>
+        <g><circle class="journey-stop-circle" cx="720" cy="380" r="28"/><text class="journey-stop-label" x="720" y="374" text-anchor="middle">Always</text><text class="journey-stop-sublabel" x="720" y="390" text-anchor="middle">there for us</text></g>
+        <g><circle class="journey-stop-circle" cx="120" cy="360" r="32"/><text class="journey-stop-label" x="120" y="352" text-anchor="middle">60!</text><text class="journey-stop-sublabel" x="120" y="372" text-anchor="middle">Cruise 🛳️</text></g>
       </svg>
     </div>
     <div class="journey-legend">
@@ -386,13 +372,12 @@
     </div>
   </section>
 
-  <!-- ── PHOTO REVEAL ── -->
+  <!-- PHOTO REVEAL -->
   <section class="photo-reveal-section">
     <h2>📸 Peek at the Birthday Star</h2>
     <p class="section-subtitle">Tap a card and we'll surprise you with a photo!</p>
     <div class="reveal-grid">
 
-      <!-- Card 1 : Solo / Hero Hitesh -->
       <div class="reveal-card" id="card-solo">
         <div class="reveal-prompt" onclick="revealPhoto('solo')">
           <span class="rp-emoji">🕶️</span>
@@ -407,7 +392,6 @@
         </div>
       </div>
 
-      <!-- Card 2 : Wife / Love -->
       <div class="reveal-card" id="card-wife">
         <div class="reveal-prompt" onclick="revealPhoto('wife')">
           <span class="rp-emoji">❤️</span>
@@ -422,7 +406,6 @@
         </div>
       </div>
 
-      <!-- Card 3 : Family -->
       <div class="reveal-card" id="card-family">
         <div class="reveal-prompt" onclick="revealPhoto('family')">
           <span class="rp-emoji">🏡</span>
@@ -440,7 +423,7 @@
     </div>
   </section>
 
-  <!-- ── 60 REASONS JAR ── -->
+  <!-- 60 REASONS JAR -->
   <section class="jar-section">
     <h2>❤️ 60 Reasons We Love You</h2>
     <p class="section-subtitle">Pick one chit at a time from the jar</p>
@@ -449,13 +432,13 @@
         <span class="jar-chits-count" id="jar-count">60 left</span>
       </div>
       <div class="chit-display" id="chit-display">
-        <span class="chit-placeholder">Click below to pull a chit</span>
+        <span class="chit-placeholder">Tap below to pull a chit 🎁</span>
       </div>
       <button type="button" class="jar-cta" id="pick-chit">Pick a chit</button>
     </div>
   </section>
 
-  <!-- ── SPIN THE TOAST ── -->
+  <!-- SPIN THE TOAST -->
   <section class="game-section">
     <h2>🥃 Spin the Toast</h2>
     <p class="section-subtitle">Give the wheel a spin and raise a glass to Harry!</p>
@@ -470,14 +453,14 @@
     </div>
   </section>
 
-  <!-- ── FOOTER ── -->
+  <!-- FOOTER -->
   <footer>
     <div class="cruise">🛳️</div>
     <p class="message">Thank you for always showing up for us. We love you, Harry!</p>
     <p class="empire-tag">— Empire King of Star Liquors, with love from your family</p>
   </footer>
 
-  <!-- ── LIGHTBOX ── -->
+  <!-- LIGHTBOX -->
   <div class="lightbox-overlay" id="lightbox" onclick="closeLightbox()">
     <div class="lightbox-inner" onclick="event.stopPropagation()">
       <img id="lightbox-img" src="" alt="">
@@ -486,7 +469,7 @@
   </div>
 
   <script>
-    /* ── CONFETTI ── */
+    /* CONFETTI */
     const canvas = document.getElementById('confetti-canvas');
     const ctx    = canvas.getContext('2d');
     let W = canvas.width  = window.innerWidth;
@@ -494,103 +477,103 @@
     const particles = [];
     const COLORS = ['#c9a227','#b8860b','#8b5a2b','#6b3a1e','#e8d48b'];
     class Particle {
-      constructor(){ this.x=Math.random()*W; this.y=-10; this.size=Math.random()*6+3;
-        this.color=COLORS[Math.floor(Math.random()*COLORS.length)];
-        this.vy=Math.random()*2+2; this.vx=(Math.random()-.5)*2;
-        this.rot=Math.random()*360; this.drot=(Math.random()-.5)*10; }
-      update(){ this.y+=this.vy; this.x+=this.vx; this.rot+=this.drot; return this.y<H+20; }
-      draw(){ ctx.save(); ctx.translate(this.x,this.y); ctx.rotate(this.rot*Math.PI/180);
-        ctx.fillStyle=this.color; ctx.fillRect(-this.size/2,-this.size/2,this.size,this.size); ctx.restore(); }
+      constructor() {
+        this.x = Math.random() * W; this.y = -10;
+        this.size = Math.random() * 6 + 3;
+        this.color = COLORS[Math.floor(Math.random() * COLORS.length)];
+        this.vy = Math.random() * 2 + 2; this.vx = (Math.random() - .5) * 2;
+        this.rot = Math.random() * 360; this.drot = (Math.random() - .5) * 10;
+      }
+      update() { this.y += this.vy; this.x += this.vx; this.rot += this.drot; return this.y < H + 20; }
+      draw() {
+        ctx.save(); ctx.translate(this.x, this.y); ctx.rotate(this.rot * Math.PI / 180);
+        ctx.fillStyle = this.color; ctx.fillRect(-this.size/2, -this.size/2, this.size, this.size); ctx.restore();
+      }
     }
-    function animate(){
-      ctx.clearRect(0,0,W,H);
-      if(Math.random()<.03) for(let i=0;i<5;i++) particles.push(new Particle());
-      particles.forEach((p,i)=>{ if(!p.update()) particles.splice(i,1); else p.draw(); });
+    function animate() {
+      ctx.clearRect(0, 0, W, H);
+      if (Math.random() < .03) for (let i = 0; i < 5; i++) particles.push(new Particle());
+      particles.forEach((p, i) => { if (!p.update()) particles.splice(i, 1); else p.draw(); });
       requestAnimationFrame(animate);
     }
-    window.addEventListener('resize',()=>{ W=canvas.width=window.innerWidth; H=canvas.height=window.innerHeight; });
-    for(let i=0;i<50;i++){ const p=new Particle(); p.y=Math.random()*H; p.x=Math.random()*W; particles.push(p); }
+    window.addEventListener('resize', () => { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; });
+    for (let i = 0; i < 50; i++) { const p = new Particle(); p.y = Math.random() * H; p.x = Math.random() * W; particles.push(p); }
     animate();
 
-    /* ── PHOTO POOLS ── */
+    /* PHOTO POOLS */
     const photoPools = {
       solo: [
-        { src:'photos/solo/8a7b2807-e2a3-4c0d-ba15-3b7c23783edf.JPG',   cap:'Looking sharp, Harry! 😎' },
-        { src:'photos/solo/FullSizeRender%202.JPG',                      cap:'The man himself 🌟' },
-        { src:'photos/solo/IMG_2731%202.JPEG',                           cap:'60 years of awesome 🎉' },
-        { src:'photos/solo/IMG_2742%203.JPEG',                           cap:'The Empire King 👑' },
-        { src:'photos/solo/IMG_3560%202.JPEG',                           cap:'Always stylish ✨' },
-        { src:'photos/solo/IMG_4352%202.JPEG',                           cap:'Our hero 🦁' },
-        { src:'photos/solo/View%20recent%20photos.JPEG',                 cap:'Hitesh in his element 🥃' }
+        { src: 'photos/solo/8a7b2807-e2a3-4c0d-ba15-3b7c23783edf.JPG',   cap: 'Looking sharp, Harry! 😎' },
+        { src: 'photos/solo/FullSizeRender%202.JPG',                      cap: 'The man himself 🌟' },
+        { src: 'photos/solo/IMG_2731%202.JPEG',                           cap: '60 years of awesome 🎉' },
+        { src: 'photos/solo/IMG_2742%203.JPEG',                           cap: 'The Empire King 👑' },
+        { src: 'photos/solo/IMG_3560%202.JPEG',                           cap: 'Always stylish ✨' },
+        { src: 'photos/solo/IMG_4352%202.JPEG',                           cap: 'Our hero 🦁' },
+        { src: 'photos/solo/View%20recent%20photos.JPEG',                 cap: 'Hitesh in his element 🥃' }
       ],
       wife: [
-        { src:'photos/him+his%20wife/IMG_0651%202.JPEG',                 cap:'Together is a beautiful place 💕' },
-        { src:'photos/him+his%20wife/IMG_6796.JPG',                      cap:'Love of his life ❤️' },
-        { src:'photos/him+his%20wife/e40908bf-28b6-4087-af0b-69f1476a72c6.JPG', cap:'Side by side, always 🌹' }
+        { src: 'photos/wife/IMG_0651%202.JPEG',                           cap: 'Together is a beautiful place 💕' },
+        { src: 'photos/wife/IMG_6796.JPG',                                cap: 'Love of his life ❤️' },
+        { src: 'photos/wife/e40908bf-28b6-4087-af0b-69f1476a72c6.JPG',   cap: 'Side by side, always 🌹' }
       ],
       family: [
-        { src:'photos/family/IMG_0729.JPG',                              cap:'Family first, always 🏡' },
-        { src:'photos/family/IMG_0974.jpeg',                             cap:'The ones who adore him 🥰' },
-        { src:'photos/family/IMG_1028.jpeg',                             cap:'A moment to remember 📸' },
-        { src:'photos/family/IMG_2387%202.JPG',                          cap:'Full hearts ❤️' },
-        { src:'photos/family/IMG_2870.JPG',                              cap:'Celebrating together 🎊' },
-        { src:'photos/family/IMG_2875.JPG',                              cap:'The pride of his life 🌟' },
-        { src:'photos/family/IMG_6658.JPG',                              cap:'His greatest achievement 👨‍👩‍👧‍👦' },
-        { src:'photos/family/IMG_3063%202.JPG',                          cap:'Memories that last forever ✨' },
-        { src:'photos/family/0768ed41-ad8a-42c0-9b6f-18c47ed39c24.JPG', cap:'Love in every frame 💛' },
-        { src:'photos/family/27560c20-4632-404c-b7d3-921a1917a014.JPG', cap:'Together as one 🏠' },
-        { src:'photos/family/765b21de-cf6a-4362-8b1f-b93fd919e0bc.JPG', cap:'Building a legacy 🌱' },
-        { src:'photos/family/874b4621-12e2-4231-a7c1-4c39efa19c75.JPG', cap:'Smiles all around 😊' },
-        { src:'photos/family/912266fd-ad66-415b-b6fa-042b8376dd24.JPG', cap:'The family he built 👑' },
-        { src:'photos/family/a8bc95de-401d-4cf5-93fc-eb87da6b42f9.JPG', cap:'Love never ends 💖' },
-        { src:'photos/family/fb8f794a-cd22-43d7-9b78-4b4f8fd76c7b.JPG', cap:'60 years of family love 🎂' }
+        { src: 'photos/family/IMG_0729.JPG',                              cap: 'Family first, always 🏡' },
+        { src: 'photos/family/IMG_0974.jpeg',                             cap: 'The ones who adore him 🥰' },
+        { src: 'photos/family/IMG_1028.jpeg',                             cap: 'A moment to remember 📸' },
+        { src: 'photos/family/IMG_2387%202.JPG',                          cap: 'Full hearts ❤️' },
+        { src: 'photos/family/IMG_2870.JPG',                              cap: 'Celebrating together 🎊' },
+        { src: 'photos/family/IMG_2875.JPG',                              cap: 'The pride of his life 🌟' },
+        { src: 'photos/family/IMG_6658.JPG',                              cap: 'His greatest achievement 👨‍👩‍👧‍👦' },
+        { src: 'photos/family/IMG_3063%202.JPG',                          cap: 'Memories that last forever ✨' },
+        { src: 'photos/family/0768ed41-ad8a-42c0-9b6f-18c47ed39c24.JPG', cap: 'Love in every frame 💛' },
+        { src: 'photos/family/27560c20-4632-404c-b7d3-921a1917a014.JPG', cap: 'Together as one 🏠' },
+        { src: 'photos/family/765b21de-cf6a-4362-8b1f-b93fd919e0bc.JPG', cap: 'Building a legacy 🌱' },
+        { src: 'photos/family/874b4621-12e2-4231-a7c1-4c39efa19c75.JPG', cap: 'Smiles all around 😊' },
+        { src: 'photos/family/912266fd-ad66-415b-b6fa-042b8376dd24.JPG', cap: 'The family he built 👑' },
+        { src: 'photos/family/a8bc95de-401d-4cf5-93fc-eb87da6b42f9.JPG', cap: 'Love never ends 💖' },
+        { src: 'photos/family/fb8f794a-cd22-43d7-9b78-4b4f8fd76c7b.JPG', cap: '60 years of family love 🎂' }
       ]
     };
 
     const lastShown = { solo: -1, wife: -1, family: -1 };
 
     function pickRandom(pool, lastIdx) {
-      if(pool.length === 1) return 0;
+      if (pool.length === 1) return 0;
       let idx;
-      do { idx = Math.floor(Math.random() * pool.length); } while(idx === lastIdx);
+      do { idx = Math.floor(Math.random() * pool.length); } while (idx === lastIdx);
       return idx;
     }
 
     function revealPhoto(type) {
-      const pool   = photoPools[type];
-      const idx    = pickRandom(pool, lastShown[type]);
+      var pool   = photoPools[type];
+      var idx    = pickRandom(pool, lastShown[type]);
       lastShown[type] = idx;
-      const photo  = pool[idx];
-
-      const prompt = document.querySelector('#card-' + type + ' .reveal-prompt');
-      const wrap   = document.getElementById('photo-wrap-' + type);
-      const img    = document.getElementById('photo-img-' + type);
-      const cap    = document.getElementById('photo-cap-' + type);
-
-      img.src  = photo.src;
+      var photo  = pool[idx];
+      var prompt = document.querySelector('#card-' + type + ' .reveal-prompt');
+      var wrap   = document.getElementById('photo-wrap-' + type);
+      var img    = document.getElementById('photo-img-' + type);
+      var cap    = document.getElementById('photo-cap-' + type);
+      img.src = photo.src;
       cap.textContent = photo.cap;
-
       prompt.style.display = 'none';
       wrap.classList.add('visible');
-
-      // clicking the revealed photo opens lightbox
-      img.onclick = () => openLightbox(photo.src);
+      img.onclick = function() { openLightbox(photo.src); };
     }
 
-    /* ── LIGHTBOX ── */
-    function openLightbox(src){
+    /* LIGHTBOX */
+    function openLightbox(src) {
       document.getElementById('lightbox-img').src = src;
       document.getElementById('lightbox').classList.add('open');
       document.body.style.overflow = 'hidden';
     }
-    function closeLightbox(){
+    function closeLightbox() {
       document.getElementById('lightbox').classList.remove('open');
       document.body.style.overflow = '';
     }
-    document.addEventListener('keydown', e => { if(e.key==='Escape') closeLightbox(); });
+    document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeLightbox(); });
 
-    /* ── SPIN THE TOAST ── */
-    const toasts = [
+    /* SPIN THE TOAST */
+    var toasts = [
       "Here's to 60 years, Harry! 🥃",
       "Empire King of Star Liquors!",
       "Cheers to the man who always shows up!",
@@ -604,28 +587,34 @@
       "Here's to the cruise and the journey!",
       "To Harry—friend, uncle, legend!"
     ];
-    const wheel      = document.getElementById('toast-wheel');
-    const resultEl   = document.getElementById('toast-result');
-    const spinAgain  = document.getElementById('spin-again');
-    let isSpinning   = false;
-    function spinWheel(){
-      if(isSpinning) return;
-      isSpinning = true; wheel.classList.add('spinning');
-      resultEl.textContent = ''; spinAgain.style.display = 'none';
-      const deg = 360*(4+Math.random()*4)+Math.random()*360;
-      wheel.style.transform = `rotate(${deg}deg)`;
-      setTimeout(()=>{
-        resultEl.textContent = toasts[Math.floor(Math.random()*toasts.length)];
+    var wheel     = document.getElementById('toast-wheel');
+    var resultEl  = document.getElementById('toast-result');
+    var spinAgain = document.getElementById('spin-again');
+    var isSpinning = false;
+
+    function spinWheel() {
+      if (isSpinning) return;
+      isSpinning = true;
+      wheel.classList.add('spinning');
+      resultEl.textContent = '';
+      spinAgain.style.display = 'none';
+      var deg = 360 * (4 + Math.random() * 4) + Math.random() * 360;
+      wheel.style.transform = 'rotate(' + deg + 'deg)';
+      setTimeout(function() {
+        resultEl.textContent = toasts[Math.floor(Math.random() * toasts.length)];
         spinAgain.style.display = 'inline-block';
-        wheel.classList.remove('spinning'); isSpinning = false;
+        wheel.classList.remove('spinning');
+        isSpinning = false;
       }, 2500);
     }
     wheel.addEventListener('click', spinWheel);
-    wheel.addEventListener('keydown', e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); spinWheel(); }});
+    wheel.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); spinWheel(); }
+    });
     spinAgain.addEventListener('click', spinWheel);
 
-    /* ── 60 CHITS JAR ── */
-    const chits = [
+    /* 60 CHITS JAR */
+    var chits = [
       "You always show up—no matter what.",
       "You built a life from scratch in a new country.",
       "You're the uncle who never misses a graduation.",
@@ -663,7 +652,7 @@
       "You're the reason we know family comes first.",
       "You've lived 60 years of courage and kindness.",
       "You're the one in the crowd cheering loudest.",
-      "You turned every \"I can't\" into \"we did.\","
+      "You turned every 'I can't' into 'we did.'",
       "You've given us a lifetime of memories.",
       "You're humble about everything you've built.",
       "You make every toast feel like a promise.",
@@ -671,14 +660,14 @@
       "You're the definition of showing up.",
       "You came from India and gave us the world.",
       "You never let distance or busy get in the way.",
-      "You've got that smile that says \"I've got you.\","
+      "You've got that smile that says 'I've got you.'",
       "You're the kind of person who makes others better.",
       "You've built something real—family and Star Liquors.",
       "You're the uncle who's always in our corner.",
       "You've lived 60 years and we're just getting started.",
       "You make us proud every single day.",
       "You're the glue when we need to stay together.",
-      "You've earned every \"Empire King\" we say.",
+      "You've earned every 'Empire King' we say.",
       "You never forget where you started—India, then America.",
       "You're the one we raise a glass to—today and always.",
       "You've shown us that home is where family is.",
@@ -695,18 +684,25 @@
       "You're the reason we believe in second chances.",
       "You've made 60 years look like a gift to us all."
     ];
-    let stack = [];
-    function shuffle(){ stack = [...chits].sort(()=>Math.random()-.5); }
+
+    var stack = [];
+    function shuffle() { stack = chits.slice().sort(function() { return Math.random() - .5; }); }
     shuffle();
-    const chitDisplay = document.getElementById('chit-display');
-    const pickBtn     = document.getElementById('pick-chit');
-    const jarCount    = document.getElementById('jar-count');
-    function pickChit(){
-      if(!stack.length){ shuffle(); jarCount.textContent='60 left';
-        chitDisplay.innerHTML='<span class="chit-placeholder">Jar refilled! Pick again.</span>'; return; }
-      const c = stack.pop();
-      chitDisplay.innerHTML = '<span class="chit-text">'+c+'</span>';
-      jarCount.textContent = stack.length+' left';
+
+    var chitDisplay = document.getElementById('chit-display');
+    var pickBtn     = document.getElementById('pick-chit');
+    var jarCount    = document.getElementById('jar-count');
+
+    function pickChit() {
+      if (!stack.length) {
+        shuffle();
+        jarCount.textContent = '60 left';
+        chitDisplay.innerHTML = '<span class="chit-placeholder">Jar refilled! Pick again. 🎁</span>';
+        return;
+      }
+      var c = stack.pop();
+      chitDisplay.innerHTML = '<span class="chit-text">' + c + '</span>';
+      jarCount.textContent = stack.length + ' left';
     }
     pickBtn.addEventListener('click', pickChit);
   </script>
