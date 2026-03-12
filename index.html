@@ -12,16 +12,16 @@
   <script src="https://unpkg.com/lucide@0.577.0"></script>
   <style>
     :root {
-      --cream: #f8f4ed;
-      --warm-gold: #c9a227;
-      --deep-amber: #b8860b;
-      --bourbon: #8b5a2b;
-      --mahogany: #6b3a1e;
-      --oak: #5c4033;
-      --ocean-blue: #2c5f7c;
-      --soft-brown: #8b7355;
-      --dark-text: #2c2416;
-      --caramel: #d4a574;
+      --cream: #f0f8ff;
+      --warm-gold: #f0c040;
+      --deep-amber: #0e7490;
+      --bourbon: #1e5f74;
+      --mahogany: #0f3460;
+      --oak: #164e63;
+      --ocean-blue: #0891b2;
+      --soft-brown: #5b8fa8;
+      --dark-text: #0d2137;
+      --caramel: #7ecce0;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -32,8 +32,8 @@
       overflow-x: hidden;
       min-height: 100vh;
       background-image:
-        radial-gradient(ellipse at 20% 80%, rgba(139,90,43,0.06) 0%, transparent 50%),
-        radial-gradient(ellipse at 80% 20%, rgba(184,134,11,0.08) 0%, transparent 45%);
+        radial-gradient(ellipse at 20% 80%, rgba(14,116,144,0.08) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 20%, rgba(8,145,178,0.10) 0%, transparent 45%);
     }
 
     #confetti-canvas {
@@ -50,7 +50,39 @@
       text-align: center;
       padding: 5rem 1.5rem 3rem;
       position: relative;
-      background: linear-gradient(180deg, rgba(44,95,124,0.03) 0%, transparent 50%);
+      background: linear-gradient(180deg, rgba(8,145,178,0.12) 0%, rgba(14,116,144,0.04) 60%, transparent 100%);
+      overflow: hidden;
+    }
+    /* Animated wave at bottom of hero */
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 200%; height: 60px;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 60'%3E%3Cpath d='M0,30 C150,60 350,0 600,30 C850,60 1050,0 1200,30 L1200,60 L0,60 Z' fill='%230891b2' opacity='0.18'/%3E%3C/svg%3E") repeat-x bottom;
+      background-size: 600px 60px;
+      animation: waveMove 6s linear infinite;
+      pointer-events: none;
+    }
+    @keyframes waveMove {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .nautical-divider {
+      width: 260px; max-width: 90%;
+      border: none;
+      border-top: 3px dashed rgba(8,145,178,0.45);
+      margin: 1.25rem auto .5rem;
+      position: relative;
+    }
+    .nautical-divider::before {
+      content: '⚓';
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      background: var(--cream);
+      padding: 0 .5rem;
+      font-size: 1rem;
+      line-height: 1;
     }
     .balloon {
       position: absolute;
@@ -59,11 +91,11 @@
       animation: float 6s ease-in-out infinite;
       opacity: 0.75;
     }
-    .balloon:nth-child(1){ left:6%;  top:18%; background:linear-gradient(135deg,#c9a227,#e8d48b); animation-delay:0s; }
-    .balloon:nth-child(2){ right:6%; top:14%; background:linear-gradient(135deg,#d4a574,#e8c9a8); animation-delay:1s; }
-    .balloon:nth-child(3){ left:3%;  top:58%; background:linear-gradient(135deg,#2c5f7c,#4a8ba8); animation-delay:2s; }
-    .balloon:nth-child(4){ right:4%; top:52%; background:linear-gradient(135deg,#8b7355,#a08060); animation-delay:1.5s; }
-    .balloon:nth-child(5){ left:46%; top:8%;  background:linear-gradient(135deg,#c9a227,#f5e6b3); animation-delay:0.5s; }
+    .balloon:nth-child(1){ left:6%;  top:18%; background:linear-gradient(135deg,#0891b2,#38bdf8); animation-delay:0s; }
+    .balloon:nth-child(2){ right:6%; top:14%; background:linear-gradient(135deg,#7ecce0,#b0e8f4); animation-delay:1s; }
+    .balloon:nth-child(3){ left:3%;  top:58%; background:linear-gradient(135deg,#0f3460,#1e5f74); animation-delay:2s; }
+    .balloon:nth-child(4){ right:4%; top:52%; background:linear-gradient(135deg,#f0c040,#fde68a); animation-delay:1.5s; }
+    .balloon:nth-child(5){ left:46%; top:8%;  background:linear-gradient(135deg,#0e7490,#38bdf8); animation-delay:0.5s; }
     @keyframes float {
       0%,100%{ transform:translateY(0) rotate(-2deg); }
       50%    { transform:translateY(-16px) rotate(2deg); }
@@ -115,7 +147,7 @@
 
     /* ── JOURNEY MAP ── */
     .journey-section {
-      background:linear-gradient(180deg,transparent 0%,rgba(139,90,43,.06) 50%,transparent 100%);
+      background:linear-gradient(180deg,transparent 0%,rgba(14,116,144,.06) 50%,transparent 100%);
     }
     .journey-map-wrapper { max-width:860px; margin:0 auto; padding:.5rem; }
     .journey-map-svg    { width:100%; height:auto; display:block; }
@@ -142,7 +174,7 @@
 
     /* ── PHOTO REVEAL CARDS ── */
     .photo-reveal-section {
-      background:linear-gradient(180deg,rgba(184,134,11,.05) 0%,rgba(139,90,43,.07) 100%);
+      background:linear-gradient(180deg,rgba(126,204,224,.08) 0%,rgba(91,143,168,.10) 100%);
     }
     .reveal-grid {
       display:grid;
@@ -218,14 +250,14 @@
 
     /* ── JAR ── */
     .jar-section {
-      background:linear-gradient(180deg,rgba(184,134,11,.06) 0%,rgba(139,90,43,.08) 100%);
+      background:linear-gradient(180deg,rgba(8,145,178,.06) 0%,rgba(14,116,144,.08) 100%);
     }
     .jar-container { max-width:440px; margin:0 auto; text-align:center; }
     .jar-visual {
       width:140px; height:180px; margin:0 auto 1.5rem;
-      background:linear-gradient(160deg,rgba(248,244,237,.95) 0%,rgba(232,228,220,.98) 100%);
+      background:linear-gradient(160deg,rgba(240,248,255,.95) 0%,rgba(200,232,245,.98) 100%);
       border:6px solid var(--caramel); border-radius:8px 8px 24px 24px;
-      box-shadow:inset 0 0 30px rgba(139,90,43,.08),0 8px 24px rgba(92,64,51,.2);
+      box-shadow:inset 0 0 30px rgba(8,145,178,.08),0 8px 24px rgba(14,116,144,.2);
       position:relative; display:flex; align-items:flex-end;
       justify-content:center; padding-bottom:12px;
     }
@@ -259,8 +291,8 @@
 
     /* ── GAME ── */
     .game-section {
-      background:linear-gradient(180deg,rgba(139,90,43,.08) 0%,rgba(92,64,51,.12) 100%);
-      border-top:3px solid var(--bourbon);
+      background:linear-gradient(180deg,rgba(14,116,144,.08) 0%,rgba(22,78,99,.12) 100%);
+      border-top:3px solid var(--ocean-blue);
     }
     .game-section h2 { color:var(--mahogany); }
     .game-container { max-width:380px; margin:0 auto; text-align:center; }
@@ -268,15 +300,15 @@
     .toast-wheel {
       width:100%; height:100%; border-radius:50%;
       background:linear-gradient(135deg,var(--bourbon) 0%,var(--mahogany) 50%,var(--oak) 100%);
-      box-shadow:inset 0 0 0 7px var(--caramel),inset 0 0 0 11px var(--mahogany),0 10px 36px rgba(107,58,30,.4);
+      box-shadow:inset 0 0 0 7px var(--caramel),inset 0 0 0 11px var(--mahogany),0 10px 36px rgba(14,116,144,.4);
       display:flex; align-items:center; justify-content:center;
       cursor:pointer; transition:transform 2.5s cubic-bezier(.2,.8,.3,1); user-select:none;
     }
     .toast-wheel.spinning { cursor:default; pointer-events:none; }
     .toast-wheel-inner {
       width:100px; height:100px; border-radius:50%;
-      background:linear-gradient(145deg, var(--cream), #eee4d8);
-      border:4px solid var(--deep-amber);
+      background:linear-gradient(145deg, var(--cream), #c8e8f5);
+      border:4px solid var(--warm-gold);
       display:flex; align-items:center; justify-content:center;
       font-family:'Cormorant Garamond',serif; font-weight:600;
       font-size:1rem; color:var(--mahogany);
@@ -299,7 +331,7 @@
     /* ── FOOTER ── */
     footer {
       text-align:center; padding:3.5rem 1.5rem;
-      background:linear-gradient(180deg,rgba(44,95,124,.05) 0%,rgba(44,95,124,.1) 100%);
+      background:linear-gradient(180deg,rgba(14,116,144,.12) 0%,rgba(15,52,96,.22) 100%);
       color:var(--soft-brown);
     }
     footer .cruise { font-size:2rem; margin-bottom:.5rem; }
@@ -351,7 +383,7 @@
 
   <!-- HERO -->
   <section class="hero">
-    <span class="badge">60th Birthday Cruise</span>
+    <span class="badge">60th Birthday Cruise 🛳️</span>
     <h1>Happy Birthday, Hitesh!</h1>
     <p class="nickname">— Harry to his friends</p>
     <div class="milestone">60 Years 🎉</div>
@@ -360,6 +392,7 @@
       Celebrating you on the high seas! From India to America, you've built an incredible life,
       a family that adores you, and Star Liquors—king of your corner. Here's to 60 amazing years.
     </p>
+    <hr class="nautical-divider">
   </section>
 
   <!-- LIFE JOURNEY -->
@@ -483,12 +516,12 @@
 
   <!-- SPIN THE TOAST -->
   <section class="game-section">
-    <h2>🥃 Spin the Toast</h2>
+    <h2>🥃 Spin the Toast — Tequila &amp; Bourbon Edition</h2>
     <p class="section-subtitle">Give the wheel a spin and raise a glass to Harry!</p>
     <div class="game-container">
       <div class="toast-wheel-wrap">
         <div class="toast-wheel" id="toast-wheel" role="button" tabindex="0" aria-label="Spin the toast wheel">
-          <div class="toast-wheel-inner">SPIN</div>
+          <div class="toast-wheel-inner">🥃 SPIN</div>
         </div>
       </div>
       <div class="toast-result" id="toast-result" aria-live="polite"></div>
@@ -498,7 +531,7 @@
 
   <!-- FOOTER -->
   <footer>
-    <div class="cruise">🛳️</div>
+    <div class="cruise">🌊 🛳️</div>
     <p class="message">Thank you for always showing up for us. We love you, Harry!</p>
     <p class="empire-tag">— Empire King of Star Liquors, with love from your family</p>
   </footer>
@@ -518,7 +551,7 @@
     let W = canvas.width  = window.innerWidth;
     let H = canvas.height = window.innerHeight;
     const particles = [];
-    const COLORS = ['#c9a227','#b8860b','#8b5a2b','#6b3a1e','#e8d48b'];
+    const COLORS = ['#0e7490','#0891b2','#f0c040','#7ecce0','#0f3460','#38bdf8'];
     class Particle {
       constructor() {
         this.x = Math.random() * W; this.y = -10;
@@ -628,7 +661,13 @@
       "To graduations, weddings, and every milestone!",
       "Bourbon and birthdays—perfect pair.",
       "Here's to the cruise and the journey!",
-      "To Harry—friend, uncle, legend!"
+      "To Harry—friend, uncle, legend!",
+      "Pour the tequila — Harry's turning 60! 🥂",
+      "Bourbon neat, just like Harry — smooth and strong! 🥃",
+      "Tequila sunsets and birthday cruises! 🌅",
+      "To Harry: aged to perfection, like a fine bourbon! 🎂",
+      "Shots for the birthday king! Tequila para el rey! 🍾",
+      "Sixty years in, and the bourbon only gets better! 🥃"
     ];
     var wheel     = document.getElementById('toast-wheel');
     var resultEl  = document.getElementById('toast-result');
@@ -717,7 +756,10 @@
       "You're the reason this jar has 60 chits.",
       "You make 60 look like the beginning.",
       "You're our Harry—and we love you.",
-      "You've made 60 years look like a gift to us all."
+      "You've made 60 years look like a gift to us all.",
+      "You always know when to pour a good bourbon.",
+      "You make tequila nights feel like celebrations.",
+      "Your taste in bourbon is as refined as you are."
     ];
 
     var stack = [];
